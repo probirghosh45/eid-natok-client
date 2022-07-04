@@ -3,7 +3,7 @@ import { Navbar, Dropdown, Avatar } from "flowbite-react";
 import { Link } from "react-router-dom";
 const Nav = () => {
   return (
-    <div>
+    <div className="sticky top-0 z-50">
       <Navbar fluid={true} rounded={true}>
         <Navbar.Brand href="">
           <img

@@ -1,7 +1,7 @@
 import React from "react";
 
 const NatokCard = ({ natokData }) => {
-  const { natokName, description, directorName, subscriptionFee, starring } =
+  const { natokName, description, directorName, subscriptionFee, starring,coverPhoto } =
     natokData;
   return (
     <div>
@@ -23,8 +23,9 @@ const NatokCard = ({ natokData }) => {
 
         <img
           className="object-cover w-full h-48 mt-2"
-          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=320&q=80"
-          alt="NIKE AIR"
+          src={coverPhoto}
+          // src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=320&q=80"
+          alt="Natok Banner"
         />
 
         <div className="flex items-center justify-between px-4 py-2 bg-gray-900">

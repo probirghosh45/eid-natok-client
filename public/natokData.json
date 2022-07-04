@@ -5,7 +5,8 @@
     "directorName": "Zoolab",
     "starring": "Tresom",
     "description": "Zamit",
-    "subscriptionFee": "10"
+    "subscriptionFee": "10",
+    "coverPhoto" : "https://i.ibb.co/nbZGQfk/Sweet-heart.jpg"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "directorName": "Daltfresh",
     "starring": "Mat Lam Tam",
     "description": "Namfix",
-    "subscriptionFee": "15"
+    "subscriptionFee": "15",
+    "coverPhoto" : "https://i.ibb.co/54kZwNf/image.jpg"
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "directorName": "Konklux",
     "starring": "Fix San",
     "description": "Lotstring",
-    "subscriptionFee": "19"
+    "subscriptionFee": "19",
+    "coverPhoto" : "https://i.ibb.co/wzHtyGC/Great-Girl-Friend.jpg"
   },
   {
     "id": 4,
@@ -29,7 +32,8 @@
     "directorName": "Asoka",
     "starring": "Stronghold",
     "description": "Subin",
-    "subscriptionFee": "9"
+    "subscriptionFee": "9",
+    "coverPhoto" : "https://i.ibb.co/F3hVp0L/Last-Love.jpg"
   },
   {
     "id": 5,
@@ -37,7 +41,8 @@
     "directorName": "Alpha",
     "starring": "Rank",
     "description": "Ventosanzap",
-    "subscriptionFee": "25"
+    "subscriptionFee": "25",
+    "coverPhoto" : "https://i.ibb.co/6XK7mfP/image.jpg"
   },
   {
     "id": 6,
@@ -45,7 +50,8 @@
     "directorName": "Voyatouch",
     "starring": "Transcof",
     "description": "Tresom",
-    "subscriptionFee": "13"
+    "subscriptionFee": "13",
+    "coverPhoto" : "https://i.ibb.co/H2SCT87/Love-Story.jpg"
   },
   {
     "id": 7,
@@ -53,7 +59,8 @@
     "directorName": "Bamity",
     "starring": "Greenlam",
     "description": "Overhold",
-    "subscriptionFee": "23"
+    "subscriptionFee": "23",
+    "coverPhoto" : "https://i.ibb.co/q98mqxb/image.jpg"
   },
   {
     "id": 8,
@@ -61,7 +68,8 @@
     "directorName": "Stronghold",
     "starring": "Stronghold",
     "description": "Y-Solowarm",
-    "subscriptionFee": "11"
+    "subscriptionFee": "11",
+    "coverPhoto": "https://i.ibb.co/cxWSnZs/image.jpg"
   },
   {
     "id": 9,
@@ -69,7 +77,8 @@
     "directorName": "Hatity",
     "starring": "Cardify",
     "description": "Trippledex",
-    "subscriptionFee": "24"
+    "subscriptionFee": "24",
+    "coverPhoto" : "https://i.ibb.co/rkHzv7W/image.jpg"
   },
   {
     "id": 10,
@@ -77,7 +86,8 @@
     "directorName": "Ventosanzap",
     "starring": "Voyatouch",
     "description": "Otcom",
-    "subscriptionFee": "39"
+    "subscriptionFee": "39",
+    "coverPhoto" : "https://i.ibb.co/FhD5t77/image.jpg"
   },
   {
     "id": 11,
@@ -85,7 +95,8 @@
     "directorName": "Ronstring",
     "starring": "Hatity",
     "description": "Job",
-    "subscriptionFee": "28"
+    "subscriptionFee": "28",
+    "coverPhoto" : "https://i.ibb.co/j4T9Skm/image.jpg"
   },
   {
     "id": 12,
@@ -93,6 +104,7 @@
     "directorName": "Hatity",
     "starring": "Zoolab",
     "description": "Opela",
-    "subscriptionFee": "18"
+    "subscriptionFee": "18",
+    "coverPhoto" : "https://i.ibb.co/zFQwwQZ/image.jpg"
   }
 ]
