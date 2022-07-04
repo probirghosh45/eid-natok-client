@@ -16,17 +16,19 @@ const AddNatok = () => {
           Add Natok
         </h2>
 
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
             <div>
               <label class="text-gray-700 dark:text-gray-200" for="natokName">
                 Natok Name
               </label>
               <input
+                {...register("natokNameRequired", { required: true })}
                 id="natokName"
                 type="text"
                 class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
               />
+              {errors.natokNameRequired && <span>This field is required</span>}
             </div>
 
             <div>
@@ -37,10 +39,12 @@ const AddNatok = () => {
                 Director Name
               </label>
               <input
+                 {...register("directorNameRequired", { required: true })}             
                 id="directorName"
                 type="text"
                 class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
               />
+               {errors.directorNameRequired && <span>This field is required</span>}
             </div>
 
             <div>
@@ -48,10 +52,12 @@ const AddNatok = () => {
               Starring
               </label>
               <input
+              {...register("StarringNameRequired", { required: true })}
                 id="starring"
                 type="text"
                 class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
               />
+               {errors.StarringNameRequired && <span>This field is required</span>}
             </div>
 
             <div>
@@ -62,10 +68,12 @@ const AddNatok = () => {
                 Description
               </label>
               <input
+              {...register("descriptionRequired", { required: true })}
                 id="description"
                 type="text"
                 class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
               />
+               {errors.descriptionRequired && <span>This field is required</span>}
             </div>
             <div>
               <label
@@ -75,10 +83,12 @@ const AddNatok = () => {
                 Cover Photo (link only)
               </label>
               <input
+                {...register("coverPhotoRequired", { required: true })}
                 id="coverPhoto"
                 type="text"
                 class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
               />
+               {errors.coverPhotoRequired && <span>This field is required</span>}
             </div>
             <div>
               <label
@@ -88,16 +98,18 @@ const AddNatok = () => {
                 Subscription Fee
               </label>
               <input
+              {...register("subscriptionFeeRequired", { required: true })}
                 id="subscriptionFee"
                 type="number"
                 class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
               />
+               {errors.subscriptionFeeRequired && <span>This field is required</span>}
             </div>
           </div>
 
           <div class="flex justify-end mt-6">
             <button class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
-              Save
+            <input type="submit" />
             </button>
           </div>
         </form>
