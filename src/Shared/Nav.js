@@ -1,10 +1,11 @@
-import React from 'react';
+import React from "react";
 import { Navbar, Dropdown, Avatar } from "flowbite-react";
+import { Link } from "react-router-dom";
 const Nav = () => {
-    return (
-        <div>
-                  <Navbar fluid={true} rounded={true}>
-        <Navbar.Brand href="https://flowbite.com/">
+  return (
+    <div>
+      <Navbar fluid={true} rounded={true}>
+        <Navbar.Brand href="">
           <img
             src="https://i.ibb.co/kXNwLmX/favicon.png"
             className="mr-1 h-12 sm:h-12"
@@ -27,20 +28,21 @@ const Nav = () => {
             }
           >
             <Dropdown.Header>
-              <span className="block text-sm">Bonnie Green</span>
+              <span className="block text-sm">Probir Ghosh</span>
               <span className="block truncate text-sm font-medium">
-                name@flowbite.com
+                pk@pk.com
               </span>
             </Dropdown.Header>
-            <Dropdown.Item>Dashboard</Dropdown.Item>
-            <Dropdown.Item>Settings</Dropdown.Item>
+            <Link to="/"><Dropdown.Item>Home</Dropdown.Item></Link>
+            <Link to="/dashboard"><Dropdown.Item>Dashboard</Dropdown.Item></Link>
+            {/* <Dropdown.Item>Settings</Dropdown.Item>
             <Dropdown.Item>Earnings</Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item>Sign out</Dropdown.Item>
+            <Dropdown.Item>Sign out</Dropdown.Item> */}
           </Dropdown>
-          <Navbar.Toggle />
+          {/* <Navbar.Toggle /> */}
         </div>
-        <Navbar.Collapse>
+        {/* <Navbar.Collapse>
           <Navbar.Link href="/navbars" active={true}>
             Home
           </Navbar.Link>
@@ -48,10 +50,10 @@ const Nav = () => {
           <Navbar.Link href="/navbars">Services</Navbar.Link>
           <Navbar.Link href="/navbars">Pricing</Navbar.Link>
           <Navbar.Link href="/navbars">Contact</Navbar.Link>
-        </Navbar.Collapse>
+        </Navbar.Collapse> */}
       </Navbar>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Nav;
