@@ -7,12 +7,12 @@ const Dashboard = () => {
     <div>
       <div class="flex  overflow-hidden bg-white">
         <div class="hidden md:flex md:flex-shrink-0">
-          <div class="flex flex-col w-72 h-screen ">
+          <div class="flex flex-col w-72 h-screen  ">
             <div class="flex flex-col flex-grow pt-5 overflow-y-auto bg-pink-500 border-r">
               <div class="flex flex-col items-center flex-shrink-0 px-4">
                 <Link to="/" class="px-8 text-left focus:outline-none">
                   <h2 class="block p-2 text-xl font-medium tracking-tighter text-white transition duration-500 ease-in-out transform cursor-pointer hover:text-white">
-                    Eid Natok
+                    Home
                   </h2>
                 </Link>
                 <button class="hidden rounded-lg focus:outline-none focus:shadow-outline">
@@ -77,7 +77,7 @@ const Dashboard = () => {
                         <span class="ml-4">Manage Natok</span>
                       </Link>
                     </li>
-                    <li>
+                    {/* <li>
                       <Link
                         to=""
                         class="inline-flex items-center w-full px-4 py-2 mt-1 text-base text-white transition duration-500 ease-in-out transform bg-pink-600 rounded-lg focus:shadow-outline"
@@ -98,22 +98,22 @@ const Dashboard = () => {
                         </svg>
                         <span class="ml-4">Update Information</span>
                       </Link>
-                    </li>
+                    </li> */}
                   </ul>
                 </nav>
               </div>
-              <div class="flex flex-shrink-0 p-4 px-4 bg-pink-900">
+              <div class="flex flex-shrink-0 p-4 px-4 bg-pink-700">
                 <Link to="/" class="flex-shrink-0 block w-full group">
                   <div class="flex items-center">
                     <div>
                       <img
-                        class="inline-block rounded-full h-9 w-9"
+                        class="inline-block rounded-full h-11 "
                         src="https://i.ibb.co/kXNwLmX/favicon.png"
                         alt=""
                       />
                     </div>
                     <div class="ml-3">
-                      <p class="text-sm font-medium text-white">Eid Natok</p>
+                      <p class="text-xl font-medium text-white">Eid Natok</p>
                     </div>
                   </div>
                 </Link>
@@ -121,12 +121,12 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div class="flex flex-col flex-1 w-0 overflow-hidden">
+        <div class="flex flex-col flex-1 w-0 overflow-hidden bg-blue-300">
           <main class="relative flex-1 overflow-y-auto focus:outline-none">
             <div class="py-6">
               <div class="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
                 <div class="py-4">
-                  <div class="rounded-lg bg-gray-50 h-96">
+                  <div class="rounded-lg">
                     <Outlet />
                   </div>
                 </div>
