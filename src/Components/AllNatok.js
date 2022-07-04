@@ -85,7 +85,7 @@ const AllNatok = () => {
   console.log(natok);
 
   useEffect(() => {
-    fetch("./natokData.json")
+    fetch("https://raw.githubusercontent.com/probirghosh45/eid-natok-clinet/development/public/natokData.json")
       .then((response) => response.json())
       .then((json) => setNatok(json));
   }, []);
