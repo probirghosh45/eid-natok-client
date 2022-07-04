@@ -1,6 +1,6 @@
 import React from "react";
 import Nav from "../../Shared/Nav";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
   return (
@@ -10,12 +10,9 @@ const Dashboard = () => {
           <div class="flex flex-col w-72 h-screen ">
             <div class="flex flex-col flex-grow pt-5 overflow-y-auto bg-pink-500 border-r">
               <div class="flex flex-col items-center flex-shrink-0 px-4">
-                <Link
-                  to="/"
-                  class="px-8 text-left focus:outline-none"
-                >
+                <Link to="/" class="px-8 text-left focus:outline-none">
                   <h2 class="block p-2 text-xl font-medium tracking-tighter text-white transition duration-500 ease-in-out transform cursor-pointer hover:text-white">
-                  Eid Natok
+                    Eid Natok
                   </h2>
                 </Link>
                 <button class="hidden rounded-lg focus:outline-none focus:shadow-outline">
@@ -38,7 +35,7 @@ const Dashboard = () => {
                   <ul>
                     <li>
                       <Link
-                        to=""
+                        to="/dashboard/add-natok"
                         class="inline-flex items-center w-full px-4 py-2 mt-1 text-base text-white transition duration-500 ease-in-out transform bg-pink-600 rounded-lg focus:shadow-outline"
                       >
                         <svg
@@ -55,7 +52,29 @@ const Dashboard = () => {
                             d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
                           ></path>
                         </svg>
-                        <span class="ml-4"> Overview</span>
+                        <span class="ml-4">Add Natok</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/dashboard/manage-natok"
+                        class="inline-flex items-center w-full px-4 py-2 mt-1 text-base text-white transition duration-500 ease-in-out transform bg-pink-600 rounded-lg focus:shadow-outline"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="w-4 h-4"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                          ></path>
+                        </svg>
+                        <span class="ml-4">Manage Natok</span>
                       </Link>
                     </li>
                     <li>
@@ -77,29 +96,7 @@ const Dashboard = () => {
                             d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
                           ></path>
                         </svg>
-                        <span class="ml-4"> Overview</span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to=""
-                        class="inline-flex items-center w-full px-4 py-2 mt-1 text-base text-white transition duration-500 ease-in-out transform bg-pink-600 rounded-lg focus:shadow-outline"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="w-4 h-4"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                          ></path>
-                        </svg>
-                        <span class="ml-4"> Overview</span>
+                        <span class="ml-4">Update Information</span>
                       </Link>
                     </li>
                   </ul>
@@ -128,13 +125,10 @@ const Dashboard = () => {
           <main class="relative flex-1 overflow-y-auto focus:outline-none">
             <div class="py-6">
               <div class="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
-                <h1 class="text-lg text-neutral-600">
-                  Welcome to Dashboard !
-                </h1>
-              </div>
-              <div class="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
                 <div class="py-4">
-                  <div class="rounded-lg bg-gray-50 h-96">Hello</div>
+                  <div class="rounded-lg bg-gray-50 h-96">
+                    <Outlet />
+                  </div>
                 </div>
               </div>
             </div>
