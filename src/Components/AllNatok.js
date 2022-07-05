@@ -91,7 +91,9 @@ const AllNatok = () => {
   }, []);
 
   return <div className="" style={{backgroundColor : '#5CDB95'}}>
-   <h1 className=" text-3xl py-8 text-center">Eid Natok 2022</h1>
+   <h1 class="text-6xl font-normal leading-normal mt-0 mb-4 text-pink-800 text-center ">
+  Eid Natok 2022
+</h1>
 <div className="grid md:grid-cols-3 sm:grid-cols-1 gap-x-1 gap-y-10 pb-7">
 {
         natok.map((natok)=><NatokCard key={natok.id} natokData={natok} />)

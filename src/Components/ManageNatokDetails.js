@@ -12,8 +12,8 @@ const ManageNatokDetails = ({ natok }) => {
           >
             {natokName}
           </th>
-          <td class="px-6 py-4">{directorName}</td>
           <td class="px-6 py-4">{starring}</td>
+          <td class="px-6 py-4">{directorName}</td>
           <td class="px-6 py-4"> &#2547; {subscriptionFee}</td>
           <td class="px-6 py-4 text-right">
             <a

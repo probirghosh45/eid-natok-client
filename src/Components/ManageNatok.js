@@ -49,10 +49,10 @@ const ManageNatok = () => {
                 Natok Name
               </th>
               <th scope="col" class="px-6 py-3">
-                Director Name
+                Starring
               </th>
               <th scope="col" class="px-6 py-3">
-                Starring
+               Director Name
               </th>
               <th scope="col" class="px-6 py-3">
                 Subscription Fee
