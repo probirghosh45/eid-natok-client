@@ -31,7 +31,7 @@ const NatokCard = ({ natokData }) => {
           <h1 className="text-5xl font-bold text-white">
             &#2547; {subscriptionFee}
           </h1>
-          <Link to={`/natok/${natokData.id}`}>
+          <Link to={`/natok/${natokData._id}`}>
             <button className="px-2 py-1 text-xl font-semibold text-gray-900 uppercase transition-colors duration-200 transform bg-pink-400 rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none">
               Subscribe
             </button>

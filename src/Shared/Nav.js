@@ -5,16 +5,18 @@ const Nav = () => {
   return (
     <div className="sticky top-0 z-50">
       <Navbar fluid={true} rounded={true}>
-        <Navbar.Brand href="">
-          <img
-            src="https://i.ibb.co/kXNwLmX/favicon.png"
-            className="mr-1 h-12 sm:h-12"
-            alt="Flowbite Logo"
-          />
-          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-            Eid Natok
-          </span>
-        </Navbar.Brand>
+        <Link to="/">
+          <Navbar.Brand>
+            <img
+              src="https://i.ibb.co/kXNwLmX/favicon.png"
+              className="mr-1 h-12 sm:h-12"
+              alt="Flowbite Logo"
+            />
+            <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+              Eid Natok
+            </span>
+          </Navbar.Brand>
+        </Link>
         <div className="flex md:order-2">
           <Dropdown
             arrowIcon={false}
@@ -33,8 +35,12 @@ const Nav = () => {
                 pk@pk.com
               </span>
             </Dropdown.Header>
-            <Link to="/"><Dropdown.Item>Home</Dropdown.Item></Link>
-            <Link to="/dashboard"><Dropdown.Item>Dashboard</Dropdown.Item></Link>
+            <Link to="/">
+              <Dropdown.Item>Home</Dropdown.Item>
+            </Link>
+            <Link to="/dashboard">
+              <Dropdown.Item>Dashboard</Dropdown.Item>
+            </Link>
             {/* <Dropdown.Item>Settings</Dropdown.Item>
             <Dropdown.Item>Earnings</Dropdown.Item>
             <Dropdown.Divider />
