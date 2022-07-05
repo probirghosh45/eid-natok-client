@@ -5,6 +5,7 @@ const ManageNatokDetails = ({ natok }) => {
   const { natokName, directorName, starring, subscriptionFee } = natok;
   const [showModal, setShowModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
+  // const [isReload,setIsReload] = useState(false);
   const {
     register,
     handleSubmit,
@@ -12,6 +13,19 @@ const ManageNatokDetails = ({ natok }) => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => console.log(data);
+
+  const handleDelete = (id) => {
+    console.log(id);
+  
+    fetch(`http://localhost:4700/delete-data/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        // setIsReload(!isReload);
+      });
+  };
 
   return (
     <>
@@ -208,6 +222,7 @@ const ManageNatokDetails = ({ natok }) => {
             <button
               class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
               onClick={() => setShowModal(true)}
+              
             >
               Delete
             </button>
@@ -251,7 +266,10 @@ const ManageNatokDetails = ({ natok }) => {
                         <button
                           className="bg-red-400 text-gray-dark active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                           type="button"
-                          onClick={() => setShowModal(false)}
+                          // onClick={() => setShowModal(false)}
+                          onClick={()=>handleDelete(natok._id)}
+                          
+
                         >
                           Confirm Delete
                         </button>
