@@ -5,6 +5,7 @@ import AddNatok from "./Components/AddNatok";
 import ManageNatok from "./Components/ManageNatok";
 import DashboardHome from "./Components/DashboardHome";
 import NatokDetails from "./Components/NatokDetails";
+import "./App.css"
 function App() {
   return (
     <>
