@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
-const ManageNatokDetails = ({ natok }) => {
+const ManageNatokDetails = ({ natok , handleDelete}) => {
   const { natokName, directorName, starring, subscriptionFee } = natok;
   const [showModal, setShowModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
-  // const [isReload,setIsReload] = useState(false);
+ 
   const {
     register,
     handleSubmit,
@@ -14,19 +14,9 @@ const ManageNatokDetails = ({ natok }) => {
   } = useForm();
   const onSubmit = (data) => console.log(data);
 
-  const handleDelete = (id) => {
-    console.log(id);
-  
-    fetch(`http://localhost:4700/delete-data/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        // setIsReload(!isReload);
-      });
-  };
+ 
 
+ 
   return (
     <>
       <tbody>

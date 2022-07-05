@@ -12,6 +12,23 @@ const ManageNatok = () => {
       .then((json) => setEidNatok(json));
   }, []);
 
+  const handleDelete = (id) => {
+    console.log(id);
+  
+    fetch(`http://localhost:4700/delete-data/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        if(data.deletedCount > 0){
+          console.log('deleted');
+          const remaining = eidNatok.filter(natok => natok._id !== id);
+          setEidNatok(remaining);
+      }
+      });
+  };
+
   return (
     <div>
       <div class="relative overflow-x-auto shadow-md sm:rounded-lg bg-pink-500">
@@ -66,7 +83,7 @@ const ManageNatok = () => {
             </tr>
           </thead>
          {
-            eidNatok?.map((natok)=><ManageNatokDetails  key={natok.key} natok={natok} />)
+            eidNatok?.map((natok)=><ManageNatokDetails  key={natok.key} natok={natok} handleDelete={handleDelete} />)
          }             
         </table>
       </div>
