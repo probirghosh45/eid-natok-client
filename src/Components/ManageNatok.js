@@ -7,7 +7,7 @@ const ManageNatok = () => {
  console.log(eidNatok);
 
   useEffect(() => {
-    fetch("https://raw.githubusercontent.com/probirghosh45/eid-natok-clinet/development/public/natokData.json")
+    fetch("http://localhost:4700/eid-natok-collection")
       .then((response) => response.json())
       .then((json) => setEidNatok(json));
   }, []);
