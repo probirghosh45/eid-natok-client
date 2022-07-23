@@ -6,11 +6,13 @@ import ManageNatok from "./Components/ManageNatok";
 import DashboardHome from "./Components/DashboardHome";
 import NatokDetails from "./Components/NatokDetails";
 import "./App.css"
+import Login from "./Pages/Login/Login";
 function App() {
   return (
     <>
       <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login/>} />
       <Route path="/natok/:id" element={<NatokDetails/>} />
         <Route path="dashboard" element={<Dashboard />}>
           <Route index element={<DashboardHome />} />
