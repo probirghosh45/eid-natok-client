@@ -6,6 +6,7 @@
  * 1. Create a project on console.firebase.google.com
  * 2. npm install firebase 
  * 3. Register Web app in firebase
+ * =>  Go to => https://firebase.google.com/docs/auth/web/start
  * 4. copy firebase init with config from firebase project settings into a file firebase.init.js (in src folder)
  * 5. import getAuth from firebase/auth and create const auth = getAuth(app) in App.js
  * 6. export default auth from firebase.init.js
@@ -23,5 +24,16 @@
  *  =>  follow Example => https://github.com/CSFrequency/react-firebase-hooks/tree/master/auth#social-login-example
  * 
  *   
+ *  ------------------ Private/Protected Route ----------------
+ * 
+ *   => https://reactrouter.com/docs/en/v6/examples/auth
+ * 
+ * 
+ *   => Required Auth => [Required Auth] => https://stackblitz.com/github/remix-run/react-router/tree/main/examples/auth?file=src%2FApp.tsx
+ * 
+ * 
+ *   => Redirect => [Login Page] => https://stackblitz.com/github/remix-run/react-router/tree/main/examples/auth?file=src%2FApp.tsx
+ *  
+ * 
  * 
  */

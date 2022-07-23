@@ -1,13 +1,21 @@
 import React from "react";
 import Nav from "../../Shared/Nav";
 import auth from "../../firebase.init";
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  let navigate = useNavigate();
+  let location = useLocation();
+  let [user] = useAuthState(auth);
+const [signInWithGoogle, googleUser, loading, error] = useSignInWithGoogle(auth);   
+let from = location.state?.from?.pathname || "/";
 
-const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);   
+if(user){
+  navigate(from, { replace: true });
+}
 
-  return (
+return (
     <div>
         <Nav/>
       <section class="text-gray-600 body-font">

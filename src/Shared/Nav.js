@@ -1,7 +1,17 @@
 import React from "react";
 import { Navbar, Dropdown, Avatar } from "flowbite-react";
 import { Link } from "react-router-dom";
+import {signOut } from 'firebase/auth';
+import auth from "../firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
+
 const Nav = () => {
+  const logout = () => {
+    signOut(auth);
+  };
+
+  let [user] = useAuthState(auth);
+
   return (
     <div className="sticky top-0 z-50">
       <Navbar fluid={true} rounded={true}>
@@ -38,9 +48,23 @@ const Nav = () => {
             <Link to="/">
               <Dropdown.Item>Home</Dropdown.Item>
             </Link>
-            <Link to="/login">
+            {/* <Link to="/login">
               <Dropdown.Item>Login</Dropdown.Item>
             </Link>
+            <Link to="/" onClick = {() => signOut() } >
+              <Dropdown.Item>Log Out</Dropdown.Item>
+            </Link> */}
+
+
+{
+                            user ? <>
+                            <Link to="/" onClick={()=>signOut(auth)}> Sign Out</Link>
+                            </> :
+                            <Link to="/login">
+                            <Dropdown.Item>Login</Dropdown.Item>
+                          </Link>
+                        }
+            
             <Link to="/dashboard">
               <Dropdown.Item>Dashboard</Dropdown.Item>
             </Link>
