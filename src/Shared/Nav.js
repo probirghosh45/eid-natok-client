@@ -30,13 +30,16 @@ const Nav = () => {
             }
           >
             <Dropdown.Header>
-              <span className="block text-sm">Probir Ghosh</span>
+              {/* <span className="block text-sm">Probir Ghosh</span>
               <span className="block truncate text-sm font-medium">
                 pk@pk.com
-              </span>
+              </span> */}
             </Dropdown.Header>
             <Link to="/">
               <Dropdown.Item>Home</Dropdown.Item>
+            </Link>
+            <Link to="/login">
+              <Dropdown.Item>Login</Dropdown.Item>
             </Link>
             <Link to="/dashboard">
               <Dropdown.Item>Dashboard</Dropdown.Item>
