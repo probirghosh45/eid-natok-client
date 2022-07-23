@@ -1,7 +1,12 @@
 import React from "react";
 import Nav from "../../Shared/Nav";
+import auth from "../../firebase.init";
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 const Login = () => {
+
+const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);   
+
   return (
     <div>
         <Nav/>
@@ -47,10 +52,8 @@ const Login = () => {
               <div class="line"></div>
               <h2>Alternative Login</h2>
               <div class="line"></div>
-            </div>
-            <button class="text-gray-dark bg-pink-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-700 rounded text-lg">
-              Login With Google
-            </button>
+            </div> 
+                <button onClick={() => signInWithGoogle()} className="text-gray-dark bg-pink-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-700 rounded text-lg"  >Login With Google</button>
           </div>
         </div>
       </section>
