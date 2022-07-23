@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "firebase": "^9.9.1",
     "flowbite": "^1.4.7",
     "flowbite-react": "^0.0.27",
     "heroicons-react": "^1.4.1",
