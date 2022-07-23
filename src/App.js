@@ -14,15 +14,31 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+
         {/* <Route element={<RequiredAuth/>} >
-      <Route path="/natok/:id" element={<NatokDetails/>} />
-      </Route> */}
+         <Route path="/natok/:id" element={<NatokDetails/>} />
+        </Route> */}
+{/* 
+        // Not Working Dashboard Route
+        <Route element={<RequiredAuth/>}>
+        <Route path="dashboard" element={<Dashboard />}>
+          <Route index element={<DashboardHome />} />
+          <Route path="/dashboard/add-natok" element={<AddNatok />} />
+          <Route path="/dashboard/manage-natok" element={<ManageNatok />} />
+        </Route>
+        </Route> */}
+
+
 
         <Route path="/natok/:id" element={<RequiredAuth><NatokDetails/></RequiredAuth>}></Route>
+
+        {/* Dashboard Route */}
+
+
         <Route path="dashboard" element={<RequiredAuth><Dashboard /></RequiredAuth>}>
-          <Route index element={<RequiredAuth><DashboardHome /></RequiredAuth>} />
-          <Route path="/dashboard/add-natok" element={<RequiredAuth><AddNatok /></RequiredAuth>} />
-          <Route path="/dashboard/manage-natok" element={<RequiredAuth><ManageNatok /></RequiredAuth>} />
+          <Route index element={<DashboardHome />} />
+          <Route path="/dashboard/add-natok" element={<AddNatok />} />
+          <Route path="/dashboard/manage-natok" element={<ManageNatok />} />
         </Route>
       </Routes>
     </>
