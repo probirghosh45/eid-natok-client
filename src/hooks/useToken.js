@@ -1,0 +1,30 @@
+import { useEffect } from "react";
+import { useState } from "react";
+
+const useToken = (user) => {
+  const [token, setToken] = useState("");
+
+  useEffect(() => {
+    //  console.log("User Info" , user);
+
+    const email = user?.email;
+    //  console.log("User Info" , email);
+    const currentUser = {email : email}
+
+    if (email) {
+      fetch(`http://localhost:4700/user-info/${email}`, {
+        method: "PUT",
+        body: JSON.stringify(currentUser),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => console.log("Secret Access  Token",data));
+    }
+  }, [user]);
+
+  return [token];
+};
+
+export default useToken;

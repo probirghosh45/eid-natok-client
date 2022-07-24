@@ -3,14 +3,21 @@ import Nav from "../../Shared/Nav";
 import auth from "../../firebase.init";
 import { useAuthState, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from "react-router-dom";
+import useToken from "../../hooks/useToken";
+
 
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [user] = useAuthState(auth);
 const [signInWithGoogle, googleUser, loading, error] = useSignInWithGoogle(auth);   
-let from = location.state?.from?.pathname || "/";
+const from = location.state?.from?.pathname || "/";
 
+console.log(user);
+
+const [token] = useToken(user)
+
+console.log("token data",token);
 if(user){
   navigate(from, { replace: true });
 }
