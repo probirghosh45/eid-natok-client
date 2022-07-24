@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../firebase.init";
 import ManageNatokDetails from "./ManageNatokDetails";
 import MySubscriptionDetails from "./MySubscriptionDetails";
 
 const ManageNatok = () => {
 
-  const [eidNatok,setEidNatok]= useState()  
- console.log(eidNatok);
+  const [myOrder,setMyOrder]= useState()  
+//  console.log(myOrder);
+
+const [user] = useAuthState(auth);
+
 
   useEffect(() => {
-    fetch("http://localhost:4700/eid-natok-collection")
+    fetch(`http://localhost:4700/my-order?email=${user.email}`)
       .then((response) => response.json())
-      .then((json) => setEidNatok(json));
+      .then((json) => setMyOrder(json));
   }, []);
 
   const handleDelete = (id) => {
@@ -24,8 +29,8 @@ const ManageNatok = () => {
         // console.log(data);
         if(data.deletedCount > 0){
           console.log('deleted');
-          const remaining = eidNatok.filter(natok => natok._id !== id);
-          setEidNatok(remaining);
+          const remaining = myOrder.filter(natok => natok._id !== id);
+          setMyOrder(remaining);
       }
       });
   };
@@ -80,9 +85,9 @@ const ManageNatok = () => {
               </th>
             </tr>
           </thead>
-         {
-            eidNatok?.map((natok)=><MySubscriptionDetails  key={natok.key} natok={natok} handleDelete={handleDelete} />)
-         }             
+          {
+            myOrder?.map((natok)=><MySubscriptionDetails  key={natok.key} natok={natok} handleDelete={handleDelete} />)
+         }              
         </table>
       </div>
     </div>

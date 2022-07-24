@@ -4,19 +4,20 @@ import ManageSubscriptionDetails from "./ManageSubscriptionDetails";
 
 const ManageNatok = () => {
 
-  const [eidNatok,setEidNatok]= useState()  
- console.log(eidNatok);
+  const [order,setOrder]= useState();  
+ console.log(order);
+
 
   useEffect(() => {
-    fetch("http://localhost:4700/eid-natok-collection")
+    fetch("http://localhost:4700/order")
       .then((response) => response.json())
-      .then((json) => setEidNatok(json));
+      .then((json) => setOrder(json));
   }, []);
 
   const handleDelete = (id) => {
     console.log(id);
   
-    fetch(`http://localhost:4700/delete-data/${id}`, {
+    fetch(`http://localhost:4700/order/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -24,8 +25,8 @@ const ManageNatok = () => {
         // console.log(data);
         if(data.deletedCount > 0){
           console.log('deleted');
-          const remaining = eidNatok.filter(natok => natok._id !== id);
-          setEidNatok(remaining);
+          const remaining = order.filter(natok => natok._id !== id);
+          setOrder(remaining);
       }
       });
   };
@@ -83,9 +84,9 @@ const ManageNatok = () => {
               </th>
             </tr>
           </thead>
-         {
-            eidNatok?.map((natok)=><ManageSubscriptionDetails  key={natok.key} natok={natok} handleDelete={handleDelete} />)
-         }             
+           {
+            order?.map((natok)=><ManageSubscriptionDetails  key={natok.key} natok={natok} handleDelete={handleDelete}  />)
+         }               
         </table>
       </div>
     </div>

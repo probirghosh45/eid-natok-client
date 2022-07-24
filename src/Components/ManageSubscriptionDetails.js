@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
-const ManageSubscriptionDetails = ({ natok , handleDelete}) => {
-  const { natokName, directorName, starring, subscriptionFee } = natok;
+const ManageSubscriptionDetails = ({ natok,handleDelete }) => {
+  const { userEmail, natokName,subscriptionFee } = natok;
   const [showModal, setShowModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
- 
+ console.log(natok);
   const {
     register,
     handleSubmit,
@@ -27,10 +27,10 @@ const ManageSubscriptionDetails = ({ natok , handleDelete}) => {
           >
             {natokName}
           </th>
-          <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">PK@gmail.com</td>
+          <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">{userEmail}</td>
           <td class="px-6 py-4"> &#2547; {subscriptionFee}</td>
           <td class="px-6 py-4">Unpaid</td>
-          <td class="px-6 py-4">Subscribed</td>
+          <td class="px-6 py-4">Sbscribed</td>
           <td class="px-6 py-4">
             <button
               class="font-medium text-blue-600 dark:text-blue-500 hover:underline"

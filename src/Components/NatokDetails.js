@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useParams, Link } from "react-router-dom";
+import auth from "../firebase.init";
 import Nav from "../Shared/Nav";
+import { useForm } from "react-hook-form";
 
 const NatokDetails = () => {
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
 
   const [natok, setNatok] = useState({});
-   console.log(natok)
+  //  console.log(natok)
+
+  let [user] = useAuthState(auth);
+// console.log(user.displayName);
 
   useEffect(() => {
     fetch(
@@ -29,6 +35,33 @@ const NatokDetails = () => {
     YTLink: "https://youtu.be/t2oExf1ALvY",
   };
 
+
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+
+  const onSubmit = data => {
+
+      const purchaseInfo = {
+        userName : user.displayName,
+        userEmail : user.email,
+        natokName : natok.natokName,
+        subscriptionFee : natok.subscriptionFee
+      }
+
+      // console.log("data paiche",purchaseInfo);
+
+      fetch('http://localhost:4700/order', {
+        method: 'POST',
+        body: JSON.stringify(purchaseInfo),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
+        .then((response) => response.json(response))
+        .then((data) => console.log(data));
+  }
+
+   
+ 
   return (
     <div>
         <Nav/>
@@ -176,11 +209,15 @@ const NatokDetails = () => {
                 {/* <span class="title-font font-medium text-3xl text-gray-900">
                   &#2547; {dummyNatok.subscriptionFee}
                 </span> */}
-
-                <button class="flex ml-auto text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded">
-                  <Link to={dummyNatok.YTLink}>Watch Now</Link>
-                </button>
-
+               
+               <form  onSubmit={handleSubmit(onSubmit)}>
+                <button type="submit" class="flex ml-auto text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded">
+                  {/* <Link to={dummyNatok.YTLink}>Watch Now</Link> */}
+                  Confirm Order
+                  {/* <input   />  */}
+                </button> 
+                {/* <input type="submit" /> */}
+                </form>
                 {/* <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                   <svg
                     fill="currentColor"

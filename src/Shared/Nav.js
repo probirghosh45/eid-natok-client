@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 import {signOut } from 'firebase/auth';
 import auth from "../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
-
+import profilePhoto from "../profile-picture-5.jpg"
 const Nav = () => {
   const logout = () => {
     signOut(auth);
   };
 
   let [user] = useAuthState(auth);
-
+// console.log(user)
   return (
     <div className="sticky top-0 z-50">
       <Navbar fluid={true} rounded={true}>
@@ -34,7 +34,7 @@ const Nav = () => {
             label={
               <Avatar
                 alt="User settings"
-                img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                img={user ? user.photoURL : profilePhoto}
                 rounded={true}
               />
             }
