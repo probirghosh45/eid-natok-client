@@ -3,13 +3,11 @@ import { useState } from "react";
 
 const useToken = (user) => {
   const [token, setToken] = useState("");
-
+// console.log("token Data",token);
   useEffect(() => {
-    //  console.log("User Info" , user);
-
+    // console.log("User Info",user);
     const email = user?.email;
-    //  console.log("User Info" , email);
-    const currentUser = {email : email}
+    const currentUser = { email: email };
 
     if (email) {
       fetch(`http://localhost:4700/user-info/${email}`, {
@@ -20,7 +18,15 @@ const useToken = (user) => {
         },
       })
         .then((response) => response.json())
-        .then((data) => console.log("Secret Access  Token",data));
+        .then((data) => {
+            // console.log(data)
+            const accessTokenData = data.token;
+            // console.log(accessTokenData);
+            setToken(accessTokenData);
+            localStorage.setItem("JWT Token Key" ,accessTokenData)
+
+
+        });
     }
   }, [user]);
 

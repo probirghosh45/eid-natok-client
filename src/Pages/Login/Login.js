@@ -1,30 +1,46 @@
 import React from "react";
 import Nav from "../../Shared/Nav";
 import auth from "../../firebase.init";
-import { useAuthState, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
 import useToken from "../../hooks/useToken";
-
+import { useEffect } from "react";
 
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [user] = useAuthState(auth);
-const [signInWithGoogle, googleUser, loading, error] = useSignInWithGoogle(auth);   
-const from = location.state?.from?.pathname || "/";
+  const [signInWithGoogle, googleUser, loading, error] =
+    useSignInWithGoogle(auth);
+  const from = location.state?.from?.pathname || "/";
 
-console.log(user);
+  // console.log(user);
 
-const [token] = useToken(user)
+  useToken(user);
 
-console.log("token data",token);
-if(user){
-  navigate(from, { replace: true });
-}
+  const token = localStorage.getItem("JWT Token Key");
 
-return (
+  console.log("JWT TOKEN", token);
+
+  useEffect(() => {
+    if(token){
+      navigate(from , {replace: true});
+    }
+  }, [from, navigate, token]);
+
+
+
+  // if(token){
+  //   navigate(from, { replace: true });
+  // }
+
+  // if(user){
+  //   navigate(from, { replace: true });
+  // }
+
+  return (
     <div>
-        <Nav/>
+      <Nav />
       <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
           <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
@@ -67,13 +83,18 @@ return (
               <div class="line"></div>
               <h2>Alternative Login</h2>
               <div class="line"></div>
-            </div> 
-                <button onClick={() => signInWithGoogle()} className="text-gray-dark bg-pink-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-700 rounded text-lg"  >Login With Google</button>
+            </div>
+            <button
+              onClick={() => signInWithGoogle()}
+              className="text-gray-dark bg-pink-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-700 rounded text-lg"
+            >
+              Login With Google
+            </button>
           </div>
         </div>
       </section>
     </div>
   );
-}; 
+};
 
 export default Login;

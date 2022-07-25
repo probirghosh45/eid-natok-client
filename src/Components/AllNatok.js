@@ -82,7 +82,7 @@ import NatokCard from "./NatokCard";
 
 const AllNatok = () => {
   const [natok, setNatok] = useState([]);
-  console.log(natok);
+  // console.log(natok);
 
   useEffect(() => {
     fetch("http://localhost:4700/eid-natok-collection")

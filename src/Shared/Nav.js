@@ -7,6 +7,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import profilePhoto from "../profile-picture-5.jpg"
 const Nav = () => {
   const logout = () => {
+    localStorage.removeItem("JWT Token Key")
     signOut(auth);
   };
 
@@ -58,7 +59,7 @@ const Nav = () => {
 
 {
                             user ? <>
-                            <Link to="/" onClick={()=>signOut(auth)}> Sign Out</Link>
+                            <Link to="/" onClick={()=>logout()}> Sign Out</Link>
                             </> :
                             <Link to="/login">
                             <Dropdown.Item>Login</Dropdown.Item>
