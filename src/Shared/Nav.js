@@ -12,7 +12,7 @@ const Nav = () => {
   };
 
   let [user] = useAuthState(auth);
-// console.log(user)
+console.log("user info" , user )
   return (
     <div className="sticky top-0 z-50">
       <Navbar fluid={true} rounded={true}>
@@ -34,8 +34,8 @@ const Nav = () => {
             inline={true}
             label={
               <Avatar
-                alt="User settings"
-                img={user ? user.photoURL : profilePhoto}
+                // alt="User settings"
+                img={user ? user?.photoURL : profilePhoto}
                 rounded={true}
               />
             }

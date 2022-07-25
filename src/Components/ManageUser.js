@@ -1,15 +1,38 @@
+import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import auth from "../firebase.init";
 import ManageUserDetails from "./ManageUserDetails";
 
 const ManageUser = () => {
 
-  const [eidNatok,setEidNatok]= useState()  
- console.log(eidNatok);
+  const [user,setUser]= useState()  
+  const navigate = useNavigate();
+//  console.log(user);
 
   useEffect(() => {
-    fetch("http://localhost:4700/eid-natok-collection")
-      .then((response) => response.json())
-      .then((json) => setEidNatok(json));
+    fetch("http://localhost:4700/user-info",{
+     
+      method : 'GET',
+      headers: {
+        // 'Content-type': 'application/json; charset=UTF-8',
+        'authorization' : `Bearer ${localStorage.getItem("JWT Token Key")}`
+      }
+      
+    })
+    .then((response) => {
+      console.log("response",response);
+
+      if(response.status === 403 || response.status === 401){
+        localStorage.removeItem("JWT Token Key");
+        signOut(auth);
+        navigate("/")
+
+      }
+
+      return response.json()
+    })
+      .then((json) => setUser(json));
   }, []);
 
   const handleDelete = (id) => {
@@ -23,8 +46,8 @@ const ManageUser = () => {
         // console.log(data);
         if(data.deletedCount > 0){
           console.log('deleted');
-          const remaining = eidNatok.filter(natok => natok._id !== id);
-          setEidNatok(remaining);
+          const remaining = user.filter(natok => natok._id !== id);
+          setUser(remaining);
       }
       });
   };
@@ -62,9 +85,9 @@ const ManageUser = () => {
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-              <th scope="col" class="px-6 py-3">
+              {/* <th scope="col" class="px-6 py-3">
                 Subscriber Name
-              </th>
+              </th> */}
               <th scope="col" class="px-6 py-3">
                 Subscriber Email
               </th>
@@ -80,7 +103,7 @@ const ManageUser = () => {
             </tr>
           </thead>
          {
-            eidNatok?.map((natok)=><ManageUserDetails  key={natok.key} natok={natok} handleDelete={handleDelete} />)
+            user?.map((user)=><ManageUserDetails  key={user.key} user={user} handleDelete={handleDelete} />)
          }             
         </table>
       </div>
