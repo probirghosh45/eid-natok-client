@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../firebase.init";
-import ManageNatokDetails from "./ManageNatokDetails";
 import MySubscriptionDetails from "./MySubscriptionDetails";
+import {signOut } from 'firebase/auth';
 
 const ManageNatok = () => {
 
@@ -31,6 +31,7 @@ const navigate = useNavigate();
 
         if(response.status === 403 || response.status === 401){
           localStorage.removeItem("JWT Token Key");
+          signOut(auth);
           navigate("/")
 
         }
