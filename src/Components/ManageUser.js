@@ -3,19 +3,19 @@ import ManageUserDetails from "./ManageUserDetails";
 
 const ManageUser = () => {
 
-  const [eidNatok,setEidNatok]= useState()  
- console.log(eidNatok);
+  const [user,setUser]= useState()  
+ console.log(user);
 
   useEffect(() => {
-    fetch("http://localhost:4700/eid-natok-collection")
+    fetch("")
       .then((response) => response.json())
-      .then((json) => setEidNatok(json));
+      .then((json) => setUser(json));
   }, []);
 
   const handleDelete = (id) => {
     console.log(id);
   
-    fetch(`http://localhost:4700/delete-data/${id}`, {
+    fetch(``, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -23,8 +23,8 @@ const ManageUser = () => {
         // console.log(data);
         if(data.deletedCount > 0){
           console.log('deleted');
-          const remaining = eidNatok.filter(natok => natok._id !== id);
-          setEidNatok(remaining);
+          const remaining = user.filter(natok => natok._id !== id);
+          setUser(remaining);
       }
       });
   };
@@ -80,7 +80,7 @@ const ManageUser = () => {
             </tr>
           </thead>
          {
-            eidNatok?.map((natok)=><ManageUserDetails  key={natok.key} natok={natok} handleDelete={handleDelete} />)
+            user?.map((user)=><ManageUserDetails  key={user.key} user={user} handleDelete={handleDelete} />)
          }             
         </table>
       </div>

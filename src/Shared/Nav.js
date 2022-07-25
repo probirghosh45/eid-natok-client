@@ -33,8 +33,8 @@ const Nav = () => {
             inline={true}
             label={
               <Avatar
-                alt="User settings"
-                img={user ? user.photoURL : profilePhoto}
+                alt="User Profile Photo"
+                img={user ? user?.photoURL : profilePhoto}
                 rounded={true}
               />
             }
@@ -58,7 +58,7 @@ const Nav = () => {
 
 {
                             user ? <>
-                            <Link to="/" onClick={()=>signOut(auth)}> Sign Out</Link>
+                            <Link to="/" onClick={()=>logout()}> Sign Out</Link>
                             </> :
                             <Link to="/login">
                             <Dropdown.Item>Login</Dropdown.Item>
