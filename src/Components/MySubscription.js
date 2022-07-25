@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import auth from "../firebase.init";
 import ManageNatokDetails from "./ManageNatokDetails";
 import MySubscriptionDetails from "./MySubscriptionDetails";
@@ -10,11 +11,32 @@ const ManageNatok = () => {
 //  console.log(myOrder);
 
 const [user] = useAuthState(auth);
+const navigate = useNavigate();
 
+// const token = localStorage.getItem("JWT Token Key");
+// console.log(token);
 
   useEffect(() => {
-    fetch(`http://localhost:4700/my-order?email=${user.email}`)
-      .then((response) => response.json())
+    fetch(`http://localhost:4700/my-order?email=${user.email}`,{
+     
+      method : 'GET',
+      headers: {
+        // 'Content-type': 'application/json; charset=UTF-8',
+        'authorization' : `Bearer ${localStorage.getItem("JWT Token Key")}`
+      }
+      
+    })
+      .then((response) => {
+        console.log("response",response);
+
+        if(response.status === 403 || response.status === 401){
+          localStorage.removeItem("JWT Token Key");
+          navigate("/")
+
+        }
+
+        return response.json()
+      })
       .then((json) => setMyOrder(json));
   }, []);
 
