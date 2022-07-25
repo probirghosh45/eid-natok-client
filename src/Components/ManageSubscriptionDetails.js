@@ -5,14 +5,14 @@ const ManageSubscriptionDetails = ({ natok,handleDelete }) => {
   const { userEmail, natokName,subscriptionFee } = natok;
   const [showModal, setShowModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
- console.log(natok);
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
+//  console.log(natok);
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   watch,
+  //   formState: { errors },
+  // } = useForm();
+  // const onSubmit = (data) => console.log(data);
 
  
 

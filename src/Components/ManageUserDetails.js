@@ -27,7 +27,7 @@ const ManageUserDetails = ({ user , handleDelete}) => {
           >
             PK
           </th>
-          <td class="px-6 py-4">PK@gmail.com</td>
+          <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">PK@gmail.com</td>
           <td class="px-6 py-4">User/Admin</td>
           <td class="px-6 py-4">Make Admin</td>
           <td class="px-6 py-4">

@@ -7,13 +7,13 @@ const MySubscriptionDetails = ({ natok , handleDelete}) => {
   const [showModal, setShowModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
  
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   watch,
+  //   formState: { errors },
+  // } = useForm();
+  // const onSubmit = (data) => console.log(data);
 
  
 
@@ -22,8 +22,8 @@ const MySubscriptionDetails = ({ natok , handleDelete}) => {
     <>
       <tbody>
         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-          <td class="px-6 py-4">{natokName}</td>
-          <td class="px-6 py-4"> &#2547; {subscriptionFee}</td>
+          <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">{natokName}</td>
+          <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"> &#2547; {subscriptionFee}</td>
           <td class="px-6 py-4"> Pay Now</td>
           <td class="px-6 py-4"> Pending</td>
           {/* <td class="px-6 py-4"> Pending</td>  */}
